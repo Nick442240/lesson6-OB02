@@ -32,17 +32,17 @@ class Admin(User):
     def add_user(self, user_list, user):
         if not any(u.user_id == user.user_id for u in user_list):
             user_list.append(user)
-            print(f'User {user.name} added successfully.')
+            print(f'Пользователь {user.name} успешно добавлен.')
         else:
-            print(f'User {user.name} already exists.')
+            print(f'Пользователь {user.name} уже имеется.')
 
     def remove_user(self, user_list, user_id):
         for user in user_list:
             if user.user_id == user_id:
                 user_list.remove(user)
-                print(f'User {user.name} removed successfully.')
+                print(f'Пользователь {user.name} успешно удален.')
                 return
-        print(f'User with ID {user_id} not found.')
+        print(f'Пользователь с ID {user_id} не найден.')
 
     def __str__(self):
         return f'Admin(ID: {self._user_id}, Name: {self._name}, Access Level: {self._access_level})'
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     user_list = [user1, user2]
 
     # Выводим список пользователей
-    print("Initial users:")
+    print("Первичный список пользователей:")
     for user in user_list:
         print(user)
 
@@ -68,15 +68,16 @@ if __name__ == "__main__":
     admin.add_user(user_list, new_user)
 
     # Выводим список пользователей после добавления
-    print("\nUsers after adding new user:")
+    print("\nСписок пользователей после добавления:")
     for user in user_list:
         print(user)
 
     # Администратор удаляет пользователя
     admin.remove_user(user_list, 2)
 
+
     # Выводим список пользователей после удаления
-    print("\nUsers after removing user with ID 2:")
+    print("\nСписок пользователей после удаления:")
     for user in user_list:
         print(user)
 
